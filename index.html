@@ -133,39 +133,34 @@ console.log(numero2);
 function sumar (){
     var resultado = 0;
     resultado =  numero1 + numero2
-    document.getElementById("display").innerHTML = resultado
-    numero1 = resultado ;
-    concat = concat + "=" + resultado 
-    lcd();
+    asigValores(resultado);
 }
 
 function dividir (){
     var resultado = 0;
     resultado =  numero1 / numero2
-    document.getElementById("display").innerHTML = resultado
-    numero1 = resultado ;
-    concat = concat + "=" + resultado 
-    lcd();
+    asigValores(resultado);
 }
 
 function restar (){
     var resultado=0;
     resultado =  numero1 - numero2
-    document.getElementById("display").innerHTML = resultado
-    numero1 = resultado ;
-    concat = concat + "=" + resultado 
-    lcd();
+    asigValores(resultado);
 }
 
 function multiplicar (){
     var resultado=0;
     resultado =  numero1 * numero2
+    asigValores(resultado);
+}
+
+
+function asigValores(resultado){
     document.getElementById("display").innerHTML = resultado
     numero1 = resultado ;
     concat = concat + "=" + resultado 
     lcd();
 }
-
 function lcd() {
     document.getElementById("display2").innerHTML = concat;
 }
