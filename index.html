@@ -70,19 +70,19 @@ function displayOperator(texto) {
 function displayIgual(){
     switch (operador) {
   case "*":
-    multiplicar ();
+  asigValores(multiplicar(numero1,numero2));
     operadorAdicional= true;
     break;
   case '+':
-    sumar();
+  asigValores(sumar(numero1,numero2));
     operadorAdicional= true;
     break;
   case '-':
-    restar();
+  asigValores(restar(numero1,numero2));
     operadorAdicional= true;
     break;
   case '/':
-    dividir();
+   asigValores(dividir(numero1,numero2));
     operadorAdicional= true;
     break;
   default:
@@ -114,11 +114,13 @@ function limpLcdResultado() {
 
 function asignacionNum (number) {
 if(operadorSeleccionado==false){
+    
 	numero1 = parseFloat(numCombinados, 10);
     console.log(numero1)
     concat =  numero1
     lcd();
 }else {
+   
 	numero2 = parseFloat(numCombinados, 10);
     console.log(numero2)
     concat = concat + number
@@ -129,29 +131,21 @@ if(operadorSeleccionado==false){
 console.log(numero1);
 console.log(numero2);
 
-
-function sumar (){
-    var resultado = 0;
-    resultado =  numero1 + numero2
-    asigValores(resultado);
+function sumar (x,y){
+   return x+y;
 }
 
-function dividir (){
-    var resultado = 0;
-    resultado =  numero1 / numero2
-    asigValores(resultado);
+
+function dividir (x,y){
+   return x/y;
 }
 
-function restar (){
-    var resultado=0;
-    resultado =  numero1 - numero2
-    asigValores(resultado);
+function restar (x,y){
+   return x-y;
 }
 
-function multiplicar (){
-    var resultado=0;
-    resultado =  numero1 * numero2
-    asigValores(resultado);
+function multiplicar (x,y){
+   return x*y;
 }
 
 
