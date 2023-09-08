@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <h2>Calculadora</h2>
+    <h2>calculator</h2>
     <p></p>
 
     <p>------------------------</p>
@@ -9,73 +9,71 @@
     <p id="display" class="color"></p>
     <p>------------------------</p>
 
-    <button id="numero7" onclick="displayNumber(7)">.7.</button>
-    <button id="numero8" onclick="displayNumber(8)">.8.</button>
-    <button id="numero9" onclick="displayNumber(9)">.9.</button>
+    <button id="number7" onclick="displayNumber(7)">.7.</button>
+    <button id="number8" onclick="displayNumber(8)">.8.</button>
+    <button id="number9" onclick="displayNumber(9)">.9.</button>
     <button id="por" onclick="displayOperator('*')">*</button>
     <p></p>
-    <button id="numero4" onclick="displayNumber(4)">.4.</button>
-    <button id="numero5" onclick="displayNumber(5)">.5.</button>
-    <button id="numero6" onclick="displayNumber(6)">.6.</button>
+    <button id="number4" onclick="displayNumber(4)">.4.</button>
+    <button id="number5" onclick="displayNumber(5)">.5.</button>
+    <button id="number6" onclick="displayNumber(6)">.6.</button>
     <button id="mas" onclick="displayOperator('+')">+</button>
     <p></p>
-    <button id="numero1" onclick="displayNumber(1)">.1.</button>
-    <button id="numero2" onclick="displayNumber(2)">.2.</button>
-    <button id="numero3" onclick="displayNumber(3)">.3.</button>
+    <button id="number1" onclick="displayNumber(1)">.1.</button>
+    <button id="number2" onclick="displayNumber(2)">.2.</button>
+    <button id="number3" onclick="displayNumber(3)">.3.</button>
     <button id="menos" onclick="displayOperator('-')">--</button>
     <p></p>
-    <button id="numero0" onclick="displayNumber(0)">0</button>
-    <button id="numero3" onclick="displayNumber('.')">.</button>
-    <button id="borrar" onclick="reset()">C</button>
-    <button id="igual" onclick="displayIgual()">=</button>
-    <button id="mas" onclick="displayOperator('/')">/</button>
-
-    <p>etiqueta de prueba</p>
+    <button id="number0" onclick="displayNumber(0)">0</button>
+    <button id="spot" onclick="displayNumber('.')">.</button>
+    <button id="delete" onclick="reset()">C</button>
+    <button id="equal" onclick="displayIgual()">=</button>
+    <button id="further" onclick="displayOperator('/')">/</button>
 
     <script>
-      var numero1;
-      var numero2;
-      var numCombinados = " ";
-      var operadorSeleccionado = false;
-      var operadorAdicional = false;
-      var operador = "";
+      var number1;
+      var number2;
+      var numCombined = " ";
+      var selectedOperato = false;
+      var additionalOperator = false;
+      var operator = "";
       var concat = "";
       var concatRes = "";
 
       function displayNumber(number) {
-        numCombinados = numCombinados + number;
-        mostrarPantalla("display", numCombinados);
-        asignacionNum(number);
+        numCombined = numCombined + number;
+        showScreen("display", numCombined);
+        assignmentNum(number);
       }
 
-      function displayOperator(texto) {
-        operadorSeleccionado = true;
-        numCombinados = "";
-        operador = texto;
-        concat = concat + texto;
-        mostrarPantalla("display2", concat);
-        if (operadorAdicional == true) {
-          limpLcdResultado();
+      function displayOperator(text) {
+        selectedOperato = true;
+        numCombined = "";
+        operator = text;
+        concat = concat + text;
+        showScreen("display2", concat);
+        if (additionalOperator == true) {
+          clearLcdResult();
         }
       }
 
       function displayIgual() {
-        switch (operador) {
+        switch (operator) {
           case "*":
-            asigValores(multiplicar(numero1, numero2));
-            operadorAdicional = true;
+            asigValores(multiply(number1, number2));
+            additionalOperator = true;
             break;
           case "+":
-            asigValores(sumar(numero1, numero2));
-            operadorAdicional = true;
+            asigValores(Add(number1, number2));
+            additionalOperator = true;
             break;
           case "-":
-            asigValores(restar(numero1, numero2));
-            operadorAdicional = true;
+            asigValores(subtract(number1, number2));
+            additionalOperator = true;
             break;
           case "/":
-            asigValores(dividir(numero1, numero2));
-            operadorAdicional = true;
+            asigValores(divide(number1, number2));
+            additionalOperator = true;
             break;
           default:
         }
@@ -83,71 +81,71 @@
 
 
       function reset() {
-        mostrarPantalla("display", "");
-        mostrarPantalla("display2", "");
-        restablecerParameters()
+        showScreen("display", "");
+        showScreen("display2", "");
+        resetParameters()
       }
 
-      function restablecerParameters() {
-        numero1= 0;
-        numero2= 0;
-        numCombinados = " ";
-        operadorSeleccionado = false;
-        operador = "";
+      function resetParameters() {
+        number1= 0;
+        number2= 0;
+        numCombined = " ";
+        selectedOperato = false;
+        operator = "";
         concat = "";
         concatRes = "";
       }
 
-      function limpLcdResultado() {
-        var indice = concat.lastIndexOf("=");
-        if (indice !== -1) {
-          concat = concat.substring(indice);
+      function clearLcdResult() {
+        var index = concat.lastIndexOf("=");
+        if (index !== -1) {
+          concat = concat.substring(index);
         }
-        mostrarPantalla("display2", concat);
+        showScreen("display2", concat);
       }
 
-      function asignacionNum(number) {
-        if (operadorSeleccionado == false) {
-          numero1 = parseFloat(numCombinados, 10);
-          console.log(numero1);
-          concat = numero1;
-          mostrarPantalla("display2", concat);
+      function assignmentNum(number) {
+        if (selectedOperato == false) {
+          number1 = parseFloat(numCombined, 10);
+          console.log(number1);
+          concat = number1;
+          showScreen("display2", concat);
         } else {
-          numero2 = parseFloat(numCombinados, 10);
-          console.log(numero2);
+          number2 = parseFloat(numCombined, 10);
+          console.log(number2);
           concat = concat + number;
-          mostrarPantalla("display2", concat);
+          showScreen("display2", concat);
         }
       }
 
-      console.log(numero1);
-      console.log(numero2);
+      console.log(number1);
+      console.log(number2);
 
-      function sumar(x, y) {
+      function Add(x, y) {
         return x + y;
       }
 
-      function dividir(x, y) {
+      function divide(x, y) {
         return x / y;
       }
 
-      function restar(x, y) {
+      function subtract(x, y) {
         return x - y;
       }
 
-      function multiplicar(x, y) {
+      function multiply(x, y) {
         return x * y;
       }
 
-      function asigValores(resultado) {
-        mostrarPantalla("display", resultado);
-        numero1 = resultado;
-        concat = sumar(sumar(concat,"="),resultado);
-        mostrarPantalla("display2", concat);
+      function asigValores(result) {
+        showScreen("display", result);
+        number1 = result;
+        concat = Add(Add(concat,"="),result);
+        showScreen("display2", concat);
       }
 
-      function mostrarPantalla(id, textoMostrar) {
-        document.getElementById(id).innerHTML = textoMostrar;
+      function showScreen(id, textShow) {
+        document.getElementById(id).innerHTML = textShow;
       }
 
     </script>
