@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html>
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>calculator</title>
+    </head>
   <body>
-    <h2>calculator</h2>
+    
     <p></p>
-
-    <p>------------------------</p>
+    <div class="container">
     <p id="display2" class="color"></p>
     <p id="display" class="color"></p>
-    <p>------------------------</p>
-
-    <button id="number7" onclick="displayNumber(7)">.7.</button>
-    <button id="number8" onclick="displayNumber(8)">.8.</button>
-    <button id="number9" onclick="displayNumber(9)">.9.</button>
+    <button id="number7" onclick="displayNumber(7)">7</button>
+    <button id="number8" onclick="displayNumber(8)">8</button>
+    <button id="number9" onclick="displayNumber(9)">9</button>
     <button id="multiply" onclick="displayOperator('*')">*</button>
     <p></p>
-    <button id="number4" onclick="displayNumber(4)">.4.</button>
-    <button id="number5" onclick="displayNumber(5)">.5.</button>
-    <button id="number6" onclick="displayNumber(6)">.6.</button>
+    <button id="number4" onclick="displayNumber(4)">4</button>
+    <button id="number5" onclick="displayNumber(5)">5</button>
+    <button id="number6" onclick="displayNumber(6)">6</button>
     <button id="add" onclick="displayOperator('+')">+</button>
     <p></p>
-    <button id="number1" onclick="displayNumber(1)">.1.</button>
-    <button id="number2" onclick="displayNumber(2)">.2.</button>
-    <button id="number3" onclick="displayNumber(3)">.3.</button>
+    <button id="number1" onclick="displayNumber(1)">1</button>
+    <button id="number2" onclick="displayNumber(2)">2</button>
+    <button id="number3" onclick="displayNumber(3)">3</button>
     <button id="subtract" onclick="displayOperator('-')">--</button>
     <p></p>
     <button id="number0" onclick="displayNumber(0)">0</button>
@@ -29,8 +33,8 @@
     <button id="delete" onclick="resetScreen()">C</button>
     <button id="equal" onclick="displayResult()">=</button>
     <button id="further" onclick="displayOperator('/')">/</button>
-
+    </div>
     <script src="calculator.js"></script>
-    
+
   </body>
 </html>
